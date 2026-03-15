@@ -50,19 +50,23 @@ def detect_city_issue(image_path: str) -> dict:
                         }
                     },
                     {
-                        "text": """You are an AI system that detects city infrastructure problems from images.
+                        "text": """You are an expert AI system for detecting and analyzing city infrastructure problems from images for a smart city management platform.
 
-Analyze this image and identify if it contains any of these city issues:
+Analyze this image carefully and identify if it contains any of these city issues:
 1. pothole - damaged road surface with holes or cracks
-2. garbage_overflow - overflowing bins, litter, waste on streets  
+2. garbage_overflow - overflowing bins, litter, waste on streets
 3. broken_streetlight - damaged, broken or non-functioning street lights or lamp posts
 
 Respond ONLY in this exact JSON format with no extra text or markdown:
 {
   "issue": "pothole" or "garbage_overflow" or "broken_streetlight" or "unknown",
   "confidence": a number between 0.0 and 1.0,
-  "detected_object": short description of what you see,
-  "status": "detected" or "no_city_issue_found"
+  "detected_object": short description of what you see in 5-8 words,
+  "status": "detected" or "no_city_issue_found",
+  "severity": "low" or "medium" or "high" or "critical",
+  "description": "2-3 sentence detailed description of the problem visible in the image",
+  "suggested_action": "specific recommended action for city authorities to fix this",
+  "estimated_risk": "brief note on risk to public safety if left unattended"
 }"""
                     }
                 ]
