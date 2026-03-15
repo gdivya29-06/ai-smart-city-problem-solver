@@ -129,7 +129,8 @@ search	pothole	Keyword search across issue, description, location
 date_from	2025-03-01	Complaints from this date
 date_to	2025-03-31	Complaints up to this date
 Database Schema
-complaints
+**`complaints`**
+```
 ├── id                TEXT PRIMARY KEY
 ├── issue             TEXT
 ├── category          TEXT
@@ -144,9 +145,13 @@ complaints
 ├── confidence_score  FLOAT ← Nova's classification confidence (0.0 – 1.0)
 ├── created_at        TIMESTAMP
 └── updated_at        TIMESTAMP
-status_history
+```
+
+**`status_history`**
+```
 ├── id            SERIAL PRIMARY KEY
 ├── complaint_id  TEXT (FK → complaints)
 ├── old_status    TEXT
 ├── new_status    TEXT
 └── changed_at    TIMESTAMP
+```
