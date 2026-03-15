@@ -329,11 +329,23 @@ async def report_issue(
             raise HTTPException(status_code=400, detail="Image must be under 5MB")
         image_bytes = contents
 
-        # Feature 1: Nova Vision — describe the image before classification
         image_description = describe_image_with_nova(image_bytes)
+        
+        # Use rich Nova vision detection from ai_model.py
+        from ai_model import analyze_image
+        nova_result = analyze_image(image_bytes, image.content_type)
+        if nova_result.get("issue") and nova_result["issue"] != "unknown":
+            issue = nova_result["issue"]
 
     # Feature 2: Classify using both text + image + vision description
     ai_result = classify_with_ai(issue, description, image_bytes, image_description)
+    
+    # Merge rich Nova data into ai_result
+    if image_bytes and 'nova_result' in dir():
+        ai_result["priority_score"] = nova_result.get("priority_score", 5)
+        ai_result["tags"] = nova_result.get("tags", [])
+        ai_result["suggested_action"] = nova_result.get("suggested_action", "")
+        ai_result["estimated_risk"] = nova_result.get("estimated_risk", "")
 
     complaint_id = str(uuid.uuid4())
     created_at = datetime.utcnow()
