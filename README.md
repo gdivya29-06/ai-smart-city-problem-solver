@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-# ai-smart-city-problem-solver
-AI system to detect and report city issues like potholes, garbage and streetlight problems automatically.
-=======
 # 🏙️ AI Smart City Problem Solver
 
 > Powered by **Amazon Nova** — Built for the Amazon Nova Hackathon
@@ -158,4 +154,4 @@ Response:
 ---
 
 *Built with ❤️ for the Amazon Nova Hackathon 2026*
->>>>>>> 12a650693235b934f9aab9e3085e8ad9f5db7cd3
+
