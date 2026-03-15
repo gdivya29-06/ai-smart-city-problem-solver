@@ -1,0 +1,9 @@
+fastapi
+uvicorn[standard]
+boto3
+Pillow
+python-multipart
+requests
+python-dotenv
+psycopg2-binary
+slowapi

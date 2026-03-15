@@ -205,3 +205,10 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+<<<<<<< HEAD
+=======
+venv/
+__pycache__/
+uploads/
+.env
+>>>>>>> 12a650693235b934f9aab9e3085e8ad9f5db7cd3
