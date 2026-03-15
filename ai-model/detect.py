@@ -50,7 +50,7 @@ def detect_city_issue(image_path: str) -> dict:
                         }
                     },
                     {
-                        "text": """You are an expert AI system for detecting and analyzing city infrastructure problems from images for a smart city management platform.
+                        "text": """You are an expert AI system for detecting and analyzing city infrastructure problems from images for a smart city management platform powered by Amazon Nova.
 
 Analyze this image carefully and identify if it contains any of these city issues:
 1. pothole - damaged road surface with holes or cracks
@@ -64,9 +64,11 @@ Respond ONLY in this exact JSON format with no extra text or markdown:
   "detected_object": short description of what you see in 5-8 words,
   "status": "detected" or "no_city_issue_found",
   "severity": "low" or "medium" or "high" or "critical",
+  "priority_score": a number from 1 to 10 where 10 is most urgent,
   "description": "2-3 sentence detailed description of the problem visible in the image",
   "suggested_action": "specific recommended action for city authorities to fix this",
-  "estimated_risk": "brief note on risk to public safety if left unattended"
+  "estimated_risk": "brief note on risk to public safety if left unattended",
+  "tags": ["tag1", "tag2", "tag3"] where tags are relevant categories from: road_safety, infrastructure, public_hazard, environmental, lighting, sanitation, traffic_risk, pedestrian_risk
 }"""
                     }
                 ]
